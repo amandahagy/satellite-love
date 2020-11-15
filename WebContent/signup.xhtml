@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<ui:composition template="/template/_template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['Index.title']}" />
+	</ui:define>
+
+	<ui:define name="content">
+		<div>
+			<h1>#{msg['Signup.title']}</h1>
+			<h:form>
+				<h:messages id="msgErro" styleClass="errorMsg" />
+
+				<h:panelGrid columns="2" cellpadding="2">
+
+					<p:outputLabel value="#{msg['User.name']}"
+						for="textName" />
+					<h:panelGroup layout="block">
+						<p:inputText id="textName" size="30" alt="Name"
+							value="#{userBean.user.name}"
+							autocomplete="off"
+							required="true"
+							requiredMessage="#{msg['User.nameRequired']}" />
+						<p:message for="textName" styleClass="errorMsg" />
+					</h:panelGroup>
+					
+					<p:outputLabel for="textEmail" value="#{msg['User.email']}" />
+					<p:inputText id="textEmail"
+						size="30"
+						value="#{userBean.user.email}"
+						required="true"
+						requiredMessage="#{msg['User.emailRequired']}"
+						validatorMessage="#{msg['User.emailInvalid']}" >
+						<f:validateRegex
+							pattern="^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$" />
+					</p:inputText>
+
+					<p:outputLabel for="textPassword" value="#{msg['User.password']}" />
+					<p:password id="textPassword"
+						size="30"
+						value="#{userBean.user.password}" />
+
+					<p:outputLabel value="#{msg['User.creationDate']}" for="textCreationDate" />
+					<p:inputText id="textCreationDate" readonly="true" size="30"
+						value="#{userBean.user.creationDate.time}">
+						<f:convertDateTime pattern="#{msg['User.dateFormat']}" />
+					</p:inputText>
+					
+					<p:outputLabel value="#{msg['User.birthday']}" for="textBirthday" />
+					<p:inputText id="textBirthday" size="30"
+						value="#{userBean.user.birthday.time}">
+						<f:convertDateTime pattern="#{msg['User.dateFormat']}" />
+					</p:inputText>
+
+					<p:outputLabel value="#{msg['PlanetSun']}"
+						for="oneMenuSun" />
+					<p:selectOneMenu id="oneMenuSun"
+						value="#{UserBean.user.sun}" required="true"
+						requiredMessage="#{msg['User.sunRequired']}">
+						<f:selectItem itemLabel="#{msg['AriesSign']}" itemValue="1" />
+						<f:selectItem itemLabel="#{msg['TaurusSign']}" itemValue="2" />
+						<f:selectItem itemLabel="#{msg['GeminiSign']}" itemValue="3" />
+						<f:selectItem itemLabel="#{msg['CancerSign']}" itemValue="4" />
+						<f:selectItem itemLabel="#{msg['LeoSign']}" itemValue="5" />
+						<f:selectItem itemLabel="#{msg['VirgoSign']}" itemValue="6" />
+						<f:selectItem itemLabel="#{msg['LibraSign']}" itemValue="7" />
+						<f:selectItem itemLabel="#{msg['ScorpioSign']}" itemValue="8" />
+						<f:selectItem itemLabel="#{msg['SagitariusSign']}" itemValue="9" />
+						<f:selectItem itemLabel="#{msg['CapricornSign']}" itemValue="10" />
+						<f:selectItem itemLabel="#{msg['AquariusSign']}" itemValue="11" />
+						<f:selectItem itemLabel="#{msg['PiscesSign']}" itemValue="12" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="#{msg['PlanetMoon']}"
+						for="oneMenuMoon" />
+					<p:selectOneMenu id="oneMenuMoon"
+						value="#{UserBean.user.moon}" required="true"
+						requiredMessage="#{msg['User.moonRequired']}">
+						<f:selectItem itemLabel="#{msg['AriesSign']}" itemValue="1" />
+						<f:selectItem itemLabel="#{msg['TaurusSign']}" itemValue="2" />
+						<f:selectItem itemLabel="#{msg['GeminiSign']}" itemValue="3" />
+						<f:selectItem itemLabel="#{msg['CancerSign']}" itemValue="4" />
+						<f:selectItem itemLabel="#{msg['LeoSign']}" itemValue="5" />
+						<f:selectItem itemLabel="#{msg['VirgoSign']}" itemValue="6" />
+						<f:selectItem itemLabel="#{msg['LibraSign']}" itemValue="7" />
+						<f:selectItem itemLabel="#{msg['ScorpioSign']}" itemValue="8" />
+						<f:selectItem itemLabel="#{msg['SagitariusSign']}" itemValue="9" />
+						<f:selectItem itemLabel="#{msg['CapricornSign']}" itemValue="10" />
+						<f:selectItem itemLabel="#{msg['AquariusSign']}" itemValue="11" />
+						<f:selectItem itemLabel="#{msg['PiscesSign']}" itemValue="12" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="#{msg['PlanetVenus']}"
+						for="oneMenuVenus" />
+					<p:selectOneMenu id="oneMenuVenus"
+						value="#{UserBean.user.venus}" required="true"
+						requiredMessage="#{msg['User.venusRequired']}">
+						<f:selectItem itemLabel="#{msg['AriesSign']}" itemValue="1" />
+						<f:selectItem itemLabel="#{msg['TaurusSign']}" itemValue="2" />
+						<f:selectItem itemLabel="#{msg['GeminiSign']}" itemValue="3" />
+						<f:selectItem itemLabel="#{msg['CancerSign']}" itemValue="4" />
+						<f:selectItem itemLabel="#{msg['LeoSign']}" itemValue="5" />
+						<f:selectItem itemLabel="#{msg['VirgoSign']}" itemValue="6" />
+						<f:selectItem itemLabel="#{msg['LibraSign']}" itemValue="7" />
+						<f:selectItem itemLabel="#{msg['ScorpioSign']}" itemValue="8" />
+						<f:selectItem itemLabel="#{msg['SagitariusSign']}" itemValue="9" />
+						<f:selectItem itemLabel="#{msg['CapricornSign']}" itemValue="10" />
+						<f:selectItem itemLabel="#{msg['AquariusSign']}" itemValue="11" />
+						<f:selectItem itemLabel="#{msg['PiscesSign']}" itemValue="12" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="#{msg['PlanetMars']}"
+						for="oneMenuMars" />
+					<p:selectOneMenu id="oneMenuMars"
+						value="#{UserBean.user.mars}" required="true"
+						requiredMessage="#{msg['User.marsRequired']}">
+						<f:selectItem itemLabel="#{msg['AriesSign']}" itemValue="1" />
+						<f:selectItem itemLabel="#{msg['TaurusSign']}" itemValue="2" />
+						<f:selectItem itemLabel="#{msg['GeminiSign']}" itemValue="3" />
+						<f:selectItem itemLabel="#{msg['CancerSign']}" itemValue="4" />
+						<f:selectItem itemLabel="#{msg['LeoSign']}" itemValue="5" />
+						<f:selectItem itemLabel="#{msg['VirgoSign']}" itemValue="6" />
+						<f:selectItem itemLabel="#{msg['LibraSign']}" itemValue="7" />
+						<f:selectItem itemLabel="#{msg['ScorpioSign']}" itemValue="8" />
+						<f:selectItem itemLabel="#{msg['SagitariusSign']}" itemValue="9" />
+						<f:selectItem itemLabel="#{msg['CapricornSign']}" itemValue="10" />
+						<f:selectItem itemLabel="#{msg['AquariusSign']}" itemValue="11" />
+						<f:selectItem itemLabel="#{msg['PiscesSign']}" itemValue="12" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="#{msg['Asc']}"
+						for="oneMenuAsc" />
+					<p:selectOneMenu id="oneMenuAsc"
+						value="#{UserBean.user.asc}" required="true"
+						requiredMessage="#{msg['User.ascRequired']}">
+						<f:selectItem itemLabel="#{msg['AriesSign']}" itemValue="1" />
+						<f:selectItem itemLabel="#{msg['TaurusSign']}" itemValue="2" />
+						<f:selectItem itemLabel="#{msg['GeminiSign']}" itemValue="3" />
+						<f:selectItem itemLabel="#{msg['CancerSign']}" itemValue="4" />
+						<f:selectItem itemLabel="#{msg['LeoSign']}" itemValue="5" />
+						<f:selectItem itemLabel="#{msg['VirgoSign']}" itemValue="6" />
+						<f:selectItem itemLabel="#{msg['LibraSign']}" itemValue="7" />
+						<f:selectItem itemLabel="#{msg['ScorpioSign']}" itemValue="8" />
+						<f:selectItem itemLabel="#{msg['SagitariusSign']}" itemValue="9" />
+						<f:selectItem itemLabel="#{msg['CapricornSign']}" itemValue="10" />
+						<f:selectItem itemLabel="#{msg['AquariusSign']}" itemValue="11" />
+						<f:selectItem itemLabel="#{msg['PiscesSign']}" itemValue="12" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="#{msg['House5']}"
+						for="oneMenuHouse5" />
+					<p:selectOneMenu id="oneMenuHouse5"
+						value="#{UserBean.user.house5}" required="true"
+						requiredMessage="#{msg['User.house5Required']}">
+						<f:selectItem itemLabel="#{msg['AriesSign']}" itemValue="1" />
+						<f:selectItem itemLabel="#{msg['TaurusSign']}" itemValue="2" />
+						<f:selectItem itemLabel="#{msg['GeminiSign']}" itemValue="3" />
+						<f:selectItem itemLabel="#{msg['CancerSign']}" itemValue="4" />
+						<f:selectItem itemLabel="#{msg['LeoSign']}" itemValue="5" />
+						<f:selectItem itemLabel="#{msg['VirgoSign']}" itemValue="6" />
+						<f:selectItem itemLabel="#{msg['LibraSign']}" itemValue="7" />
+						<f:selectItem itemLabel="#{msg['ScorpioSign']}" itemValue="8" />
+						<f:selectItem itemLabel="#{msg['SagitariusSign']}" itemValue="9" />
+						<f:selectItem itemLabel="#{msg['CapricornSign']}" itemValue="10" />
+						<f:selectItem itemLabel="#{msg['AquariusSign']}" itemValue="11" />
+						<f:selectItem itemLabel="#{msg['PiscesSign']}" itemValue="12" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="#{msg['House7']}"
+						for="oneMenuHouse7" />
+					<p:selectOneMenu id="oneMenuHouse7"
+						value="#{UserBean.user.house7}" required="true"
+						requiredMessage="#{msg['User.house7Required']}">
+						<f:selectItem itemLabel="#{msg['AriesSign']}" itemValue="1" />
+						<f:selectItem itemLabel="#{msg['TaurusSign']}" itemValue="2" />
+						<f:selectItem itemLabel="#{msg['GeminiSign']}" itemValue="3" />
+						<f:selectItem itemLabel="#{msg['CancerSign']}" itemValue="4" />
+						<f:selectItem itemLabel="#{msg['LeoSign']}" itemValue="5" />
+						<f:selectItem itemLabel="#{msg['VirgoSign']}" itemValue="6" />
+						<f:selectItem itemLabel="#{msg['LibraSign']}" itemValue="7" />
+						<f:selectItem itemLabel="#{msg['ScorpioSign']}" itemValue="8" />
+						<f:selectItem itemLabel="#{msg['SagitariusSign']}" itemValue="9" />
+						<f:selectItem itemLabel="#{msg['CapricornSign']}" itemValue="10" />
+						<f:selectItem itemLabel="#{msg['AquariusSign']}" itemValue="11" />
+						<f:selectItem itemLabel="#{msg['PiscesSign']}" itemValue="12" />
+					</p:selectOneMenu>
+
+					<p:commandButton value="Send"
+						actionListener="#{userBean.create}" update="@form" />
+
+					<p:commandButton value="Home" immediate="true"
+						action="#{userBean.browseHome}" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
