@@ -1,5 +1,7 @@
 package com.shiningstars.satellitelove.dao;
 
-public interface UserDAO {
+import com.shiningstars.satellitelove.entity.User;
+
+public interface UserDAO extends GenericDAO<User, Integer>{
 
 }
