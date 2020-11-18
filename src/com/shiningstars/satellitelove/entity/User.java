@@ -3,9 +3,7 @@ package com.shiningstars.satellitelove.entity;
 import java.io.Serializable;
 import java.util.Calendar;
 
-import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
