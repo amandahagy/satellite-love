@@ -28,17 +28,42 @@ public class User implements Serializable {
 	@Column(name = "cd_user")
 	private int id;
 	
+	@Column(name = "ds_email")
 	private String email;
+	
+	@Column(name = "ds_password")
 	private String password;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "dt_birth")
 	private Calendar birthday;
+	
+	@Column(name = "nm_name")
 	private String name;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "dt_creation")
 	private Calendar creationDate;
+	
+	@Column(name = "vl_sun")
 	private byte sun;
+	
+	@Column(name = "vl_asc")
 	private byte asc;
+	
+	@Column(name = "vl_house5")
 	private byte house5;
+	
+	@Column(name = "vl_house7")
 	private byte house7;
+	
+	@Column(name = "vl_moon")
 	private byte moon;
+	
+	@Column(name = "vl_venus")
 	private byte venus;
+	
+	@Column(name = "vl_mars")
 	private byte mars;
 	
 	public User() {
@@ -147,6 +172,10 @@ public class User implements Serializable {
 
 	public void setMars(byte mars) {
 		this.mars = mars;
+	}
+	
+	public String toString() {
+		return "User [id = " + id + ", email = " + email + ", password = " + password + ", birthday =" + birthday + ", name = " + name + ", creation date = " + creationDate + ", sun = " + sun + ", ascendant = " + asc + ", 5th house = " + house5 + ", 7th house" + house7 + "moon = " + moon + ", venus = " + venus + ", mars = " + mars + "]";
 	}
 	
 }
