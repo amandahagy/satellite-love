@@ -41,6 +41,9 @@ public class User implements Serializable {
 	@Column(name = "nm_name")
 	private String name;
 	
+	@Column(name = "vl_gender")
+	private byte gender;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_creation")
 	private Calendar creationDate;
@@ -109,6 +112,14 @@ public class User implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public byte getGender() {
+		return gender;
+	}
+	
+	public void setGender(byte gender) {
+		this.gender = gender;
+	}
 
 	public Calendar getCreationDate() {
 		return creationDate;
@@ -175,7 +186,7 @@ public class User implements Serializable {
 	}
 	
 	public String toString() {
-		return "User [id = " + id + ", email = " + email + ", password = " + password + ", birthday =" + birthday + ", name = " + name + ", creation date = " + creationDate + ", sun = " + sun + ", ascendant = " + asc + ", 5th house = " + house5 + ", 7th house" + house7 + "moon = " + moon + ", venus = " + venus + ", mars = " + mars + "]";
+		return "User [id = " + id + ", email = " + email + ", password = " + password + ", birthday =" + birthday + ", name = " + name + ", gender = " + gender + ", creation date = " + creationDate + ", sun = " + sun + ", ascendant = " + asc + ", 5th house = " + house5 + ", 7th house" + house7 + "moon = " + moon + ", venus = " + venus + ", mars = " + mars + "]";
 	}
 	
 }
